@@ -12,5 +12,6 @@
     <input type="hidden" name="shoe_id" value="<%= @shoe.id %>">
     <button class="btn btn-sm btn-danger" type="submit" name="delete_shoe">Delete</button>
   </form>
+  <a href="/store/<%= @shoe.store_id %>" class="btn btn-lg btn-default">Back</a>
   <a href="/" class="btn btn-lg btn-primary">Return to Home Page</a>
 </div>
