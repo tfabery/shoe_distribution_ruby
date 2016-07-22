@@ -1,6 +1,6 @@
 require('spec_helper')
 
-describe(Shoe, type: :model) do
+describe Shoe, type: :model do
   it { should belong_to(:brand) }
   it { should belong_to(:store) }
   it { should validate_presence_of(:name)}

@@ -1,0 +1,16 @@
+<div class="col-sm-6">
+  <h3><%= @shoe.name %></h3>
+  <form class="well edit" action="/shoe/edit" method="post">
+    <input type="hidden" name="_method" value="patch">
+    <input type="hidden" name="shoe_id" value="<%= @shoe.id %>">
+    <label for="shoe_name">Shoe Name:</label>
+    <input type="text" name="shoe_name" value="">
+    <button class="btn btn-sm btn-info" type="submit" name="add_shoe">Edit Shoe</button>
+  </form>
+  <form class="well delete" action="/shoe/delete" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input type="hidden" name="shoe_id" value="<%= @shoe.id %>">
+    <button class="btn btn-sm btn-danger" type="submit" name="delete_shoe">Delete</button>
+  </form>
+  <a href="/" class="btn btn-lg btn-primary">Return to Home Page</a>
+</div>

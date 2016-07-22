@@ -1,6 +1,6 @@
 require('spec_helper')
 
-describe(Store, type: :model) do
+describe Store, type: :model do
   it { should have_many(:brands) }
   it { should have_many(:shoes) }
   it { should validate_presence_of(:name)}

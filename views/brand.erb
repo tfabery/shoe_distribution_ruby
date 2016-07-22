@@ -1,0 +1,16 @@
+<div class="col-sm-6">
+  <h3><%= @brand.name %></h3>
+  <form class="well edit" action="/brand/edit" method="post">
+    <input type="hidden" name="_method" value="patch">
+    <input type="hidden" name="brand_id" value="<%= @brand.id %>">
+    <label for="brand_name">Brand Name:</label>
+    <input type="text" name="brand_name" value="">
+    <button class="btn btn-sm btn-info" type="submit" name="add_brand">Edit Brand</button>
+  </form>
+  <form class="well delete" action="/brand/delete" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input type="hidden" name="brand_id" value="<%= @brand.id %>">
+    <button class="btn btn-sm btn-danger" type="submit" name="delete_brand">Delete</button>
+  </form>
+  <a href="/" class="btn btn-lg btn-primary">Return to Home Page</a>
+</div>

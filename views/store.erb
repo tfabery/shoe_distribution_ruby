@@ -1,0 +1,48 @@
+<div class="col-sm-6">
+  <h3><%= @store.name %></h3>
+
+  <ul>
+    <% if @store.shoes.any? %>
+    <% @store.shoes.each do |shoe| %>
+    <li><a href="/shoe/<%= shoe.id %>"><%= shoe.brand.name %>: <%= shoe.name %></a></li>
+    <% end %>
+    <% else %>
+    <h4>There are no shoes in the store</h4>
+    <% end %>
+  </ul>
+
+  <a href="/" class="btn btn-lg btn-primary">Return to Home Page</a>
+</div>
+
+<div class="col-sm-6">
+  <% if @brands.any? %>
+  <form class="well new" action="/add_shoe" method="post">
+    <input type="hidden" name="store_id" value="<%= @store.id %>">
+    <label for="new_shoe_name">Shoe Name:</label>
+    <input type="text" name="new_shoe_name" value="">
+    <label for="brand_id">Brands:</label>
+    <select class="" name="brand_id">
+      <% @brands.each do |brand| %>
+      <option value="<%= brand.id %>"><%= brand.name %></option>
+      <% end %>
+    </select>
+    <button class="btn btn-sm btn-success" type="submit" name="add_shoe">Add a Shoe</button>
+  </form>
+  <% else %>
+  <h4>There are no shoe brands please add some <a href="/">here</a>.</h4>
+  <% end %>
+
+  <form class="well edit" action="/store/edit" method="post">
+    <input type="hidden" name="_method" value="patch">
+    <input type="hidden" name="store_id" value="<%= @store.id %>">
+    <label for="store_name">Store Name:</label>
+    <input type="text" name="store_name" value="">
+    <button class="btn btn-sm btn-info" type="submit" name="add_store">Edit Store</button>
+  </form>
+
+  <form class="well delete" action="/store/delete" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input type="hidden" name="store_id" value="<%= @store.id %>">
+    <button class="btn btn-sm btn-danger" type="submit" name="delete_store">Delete</button>
+  </form>
+</div>
