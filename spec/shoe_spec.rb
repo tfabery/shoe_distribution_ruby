@@ -3,6 +3,7 @@ require('spec_helper')
 describe(Shoe, type: :model) do
   it { should belong_to(:brand) }
   it { should belong_to(:store) }
+  it { should validate_presence_of(:name)}
 
   it "capitalizes the name regardless of how it was entered" do
     test_shoe = Shoe.create({name: 'hELlO'})
