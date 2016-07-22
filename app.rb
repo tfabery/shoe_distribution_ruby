@@ -7,6 +7,7 @@ Dir[File.dirname(__FILE__) + '/lib/*.rb'].each { |file| require file }
 get '/' do
   @stores = Store.all
   @brands = Brand.all
+  @img_path = Pathname(__FILE__).dirname + 'public' + 'img'
   erb :index
 end
 

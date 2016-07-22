@@ -5,6 +5,16 @@
       <% @stores.each do |store| %>
         <li>
           <a href="/store/<%= store.id %>"><%= store.name %></a>
+          <% if store.brands.any? %>
+            :
+            <% store.brands.each do |brand| %>
+              <% if (@img_path + (brand.name + '.gif')).exist? %>
+                <img class="logo" src="img/<%= brand.name %>.gif" alt="" />
+              <% else %>
+                <%= brand.name %>
+              <% end %>
+            <% end %>
+          <% end %>
         </li>
       <% end %>
     </ul>
